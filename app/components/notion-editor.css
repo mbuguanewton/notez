@@ -1,0 +1,381 @@
+/* Notion Editor Styles */
+.notion-editor-content .ProseMirror {
+  outline: none;
+}
+
+.notion-editor-content .ProseMirror.is-editor-empty:first-child::before {
+  color: #9CA3AF;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.notion-editor-content .ProseMirror h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 2rem 0 1.5rem;
+}
+
+.notion-editor-content .ProseMirror h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 1.75rem 0 1rem;
+}
+
+.notion-editor-content .ProseMirror h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.notion-editor-content .ProseMirror p {
+  margin: 1rem 0;
+  line-height: 1.7;
+}
+
+.notion-editor-content .ProseMirror ul, 
+.notion-editor-content .ProseMirror ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.notion-editor-content .ProseMirror li {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.notion-editor-content .ProseMirror blockquote {
+  border-left: 4px solid #E5E7EB;
+  margin: 1.5rem 0;
+  padding: 1rem 0 1rem 1.5rem;
+  font-style: italic;
+  color: #6B7280;
+  background: rgba(229, 231, 235, 0.1);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.dark .notion-editor-content .ProseMirror blockquote {
+  border-left-color: #4B5563;
+  color: #9CA3AF;
+  background: rgba(75, 85, 99, 0.1);
+}
+
+.notion-editor-content .ProseMirror pre {
+  background: #F3F4F6;
+  border-radius: 0.5rem;
+  color: #374151;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+.dark .notion-editor-content .ProseMirror pre {
+  background: #1F2937;
+  color: #E5E7EB;
+}
+
+.notion-editor-content .ProseMirror code {
+  background: #F3F4F6;
+  border-radius: 0.25rem;
+  color: #E11D48;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.875em;
+  padding: 0.125rem 0.25rem;
+}
+
+.dark .notion-editor-content .ProseMirror code {
+  background: #374151;
+  color: #F472B6;
+}
+
+/* Task List Styles */
+.notion-editor-content .task-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 1.5rem 0;
+}
+
+.notion-editor-content .task-item {
+  display: flex;
+  align-items: flex-start;
+  margin: 0.75rem 0;
+  padding: 0.25rem 0;
+}
+
+.notion-editor-content .task-item > label {
+  margin-right: 0.5rem;
+  user-select: none;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.notion-editor-content .task-item > label > input[type="checkbox"] {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #D1D5DB;
+  border-radius: 0.25rem;
+  background: white;
+  cursor: pointer;
+  position: relative;
+}
+
+.dark .notion-editor-content .task-item > label > input[type="checkbox"] {
+  border-color: #6B7280;
+  background: #374151;
+}
+
+.notion-editor-content .task-item > label > input[type="checkbox"]:checked {
+  background: #3B82F6;
+  border-color: #3B82F6;
+}
+
+.notion-editor-content .task-item > label > input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.notion-editor-content .task-item > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.notion-editor-content .task-item[data-checked="true"] > div {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Table Styles */
+.notion-editor-content .notion-table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 2rem 0;
+  overflow: hidden;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.5rem;
+}
+
+.dark .notion-editor-content .notion-table {
+  border-color: #4B5563;
+}
+
+.notion-editor-content .notion-table td,
+.notion-editor-content .notion-table th {
+  min-width: 1em;
+  border: 1px solid #E5E7EB;
+  padding: 0.75rem;
+  vertical-align: top;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.dark .notion-editor-content .notion-table td,
+.dark .notion-editor-content .notion-table th {
+  border-color: #4B5563;
+}
+
+.notion-editor-content .notion-table th {
+  font-weight: 600;
+  text-align: left;
+  background: #F9FAFB;
+}
+
+.dark .notion-editor-content .notion-table th {
+  background: #1F2937;
+}
+
+.notion-editor-content .notion-table .selectedCell:after {
+  z-index: 2;
+  position: absolute;
+  content: "";
+  left: 0; right: 0; top: 0; bottom: 0;
+  background: rgba(59, 130, 246, 0.1);
+  pointer-events: none;
+}
+
+/* Highlight Styles */
+.notion-editor-content .ProseMirror mark {
+  background: #FEF3C7;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.dark .notion-editor-content .ProseMirror mark {
+  background: #92400E;
+  color: #FEF3C7;
+}
+
+/* Horizontal Rule */
+.notion-editor-content .ProseMirror hr {
+  border: none;
+  border-top: 2px solid #E5E7EB;
+  margin: 3rem 0;
+}
+
+.dark .notion-editor-content .ProseMirror hr {
+  border-top-color: #4B5563;
+}
+
+/* Links */
+.notion-editor-content .ProseMirror a {
+  color: #3B82F6;
+  text-decoration: underline;
+}
+
+.dark .notion-editor-content .ProseMirror a {
+  color: #60A5FA;
+}
+
+/* Strong and Emphasis */
+.notion-editor-content .ProseMirror strong {
+  font-weight: 600;
+}
+
+.notion-editor-content .ProseMirror em {
+  font-style: italic;
+}
+
+/* Focus states */
+.notion-editor-content .ProseMirror:focus {
+  outline: none;
+}
+
+/* Drag cursor */
+.notion-editor-content .ProseMirror .ProseMirror-dropcursor {
+  position: relative;
+  pointer-events: none;
+}
+
+.notion-editor-content .ProseMirror .ProseMirror-dropcursor:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  top: -2px;
+  bottom: -2px;
+  border: 2px solid #3B82F6;
+  border-radius: 4px;
+}
+
+/* Gap cursor */
+.notion-editor-content .ProseMirror .ProseMirror-gapcursor {
+  display: none;
+  pointer-events: none;
+  position: absolute;
+}
+
+.notion-editor-content .ProseMirror .ProseMirror-gapcursor:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2px;
+  width: 20px;
+  border-top: 1px solid #3B82F6;
+  animation: ProseMirror-cursor-blink 1.1s steps(2, start) infinite;
+}
+
+@keyframes ProseMirror-cursor-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.notion-editor-content .ProseMirror .ProseMirror-gapcursor.ProseMirror-gapcursor-left:after {
+  left: -20px;
+}
+
+.notion-editor-content .ProseMirror .ProseMirror-gapcursor.ProseMirror-gapcursor-right:after {
+  right: -20px;
+}
+
+/* Smooth transitions for toolbar buttons */
+.notion-editor button {
+  transition: all 0.15s ease-in-out;
+}
+
+.notion-editor button:hover {
+  transform: translateY(-1px);
+}
+
+/* Block hover effects */
+.notion-editor-content .ProseMirror > * {
+  position: relative;
+}
+
+.notion-editor-content .ProseMirror > *:hover {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 0.25rem;
+}
+
+.dark .notion-editor-content .ProseMirror > *:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Additional spacing improvements */
+.notion-editor-content .ProseMirror > *:not(:first-child) {
+  margin-top: 1.25rem;
+}
+
+.notion-editor-content .ProseMirror > h1:not(:first-child) {
+  margin-top: 2.5rem;
+}
+
+.notion-editor-content .ProseMirror > h2:not(:first-child) {
+  margin-top: 2rem;
+}
+
+.notion-editor-content .ProseMirror > h3:not(:first-child) {
+  margin-top: 1.75rem;
+}
+
+/* Better spacing after headings */
+.notion-editor-content .ProseMirror h1 + p,
+.notion-editor-content .ProseMirror h2 + p,
+.notion-editor-content .ProseMirror h3 + p {
+  margin-top: 0.5rem;
+}
+
+/* Better spacing around lists */
+.notion-editor-content .ProseMirror p + ul,
+.notion-editor-content .ProseMirror p + ol,
+.notion-editor-content .ProseMirror p + .task-list {
+  margin-top: 0.75rem;
+}
+
+.notion-editor-content .ProseMirror ul + p,
+.notion-editor-content .ProseMirror ol + p,
+.notion-editor-content .ProseMirror .task-list + p {
+  margin-top: 1rem;
+}
+
+/* Better spacing around blockquotes */
+.notion-editor-content .ProseMirror p + blockquote {
+  margin-top: 1.25rem;
+}
+
+.notion-editor-content .ProseMirror blockquote + p {
+  margin-top: 1.25rem;
+}
+
+/* Better spacing around code blocks */
+.notion-editor-content .ProseMirror p + pre {
+  margin-top: 1.25rem;
+}
+
+.notion-editor-content .ProseMirror pre + p {
+  margin-top: 1.25rem;
+}

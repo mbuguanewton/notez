@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="16" height="16" fill="#4a90e2" rx="2"/>
+  
+  <!-- Notebook cover -->
+  <rect x="1.6" y="1.6" width="12.8" height="12.8" fill="#ffffff" rx="1"/>
+  
+  <!-- Spiral binding -->
+  <rect x="2.4" y="2.4" width="0.8" height="11.2" fill="#cccccc"/>
+  <circle cx="2.8" cy="4" r="0.32" fill="#999999"/>
+  <circle cx="2.8" cy="5.6" r="0.32" fill="#999999"/>
+  <circle cx="2.8" cy="7.2" r="0.32" fill="#999999"/>
+  <circle cx="2.8" cy="8.8" r="0.32" fill="#999999"/>
+  <circle cx="2.8" cy="10.4" r="0.32" fill="#999999"/>
+  <circle cx="2.8" cy="12" r="0.32" fill="#999999"/>
+  
+  <!-- Lines on page -->
+  <line x1="4" y1="4.8" x2="12.8" y2="4.8" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="4" y1="6.4" x2="12.8" y2="6.4" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="4" y1="8" x2="12.8" y2="8" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="4" y1="9.6" x2="12.8" y2="9.6" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="4" y1="11.2" x2="12.8" y2="11.2" stroke="#e0e0e0" stroke-width="1"/>
+</svg>

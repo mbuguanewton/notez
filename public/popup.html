@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notez</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #37352f;
+      background: #ffffff;
+      width: 380px;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    .popup-container {
+      padding: 16px;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e9e9e7;
+      width: 100%;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      width: 100%;
+    }
+
+    .title-icon {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #37352f;
+    }
+
+    .settings-btn {
+      background: none;
+      border: none;
+      border-radius: 6px;
+      padding: 6px;
+      cursor: pointer;
+      color: #6b7280;
+      transition: all 0.2s;
+      font-size: 14px;
+    }
+
+    .settings-btn:hover {
+      background: #f3f4f6;
+      color: #374151;
+    }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .quick-action-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: #f7f6f3;
+      border: 1px solid #e9e9e7;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 14px;
+      color: #37352f;
+      text-decoration: none;
+    }
+
+    .quick-action-btn:hover {
+      background: #f1f1ef;
+      border-color: #d9d9d6;
+      transform: translateY(-1px);
+    }
+
+    .icon {
+      font-size: 16px;
+    }
+
+    .recent-notes {
+      margin-bottom: 16px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .section-header h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #37352f;
+    }
+
+    .btn-link {
+      background: none;
+      border: none;
+      color: #2383e2;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-link:hover {
+      text-decoration: underline;
+    }
+
+    .notes-list {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .note-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+      border-bottom: 1px solid #f7f6f3;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .note-item:hover {
+      background: #f7f6f3;
+    }
+
+    .note-item:last-child {
+      border-bottom: none;
+    }
+
+    .note-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .note-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #37352f;
+      margin-bottom: 4px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .note-preview {
+      font-size: 12px;
+      color: #6b6b6b;
+      line-height: 1.4;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .note-meta {
+      font-size: 11px;
+      color: #9b9b9b;
+      margin-top: 4px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: #9b9b9b;
+    }
+
+    .empty-state .icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .empty-state h4 {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #6b6b6b;
+    }
+
+    .empty-state p {
+      font-size: 14px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid #e9e9e7;
+    }
+
+    .btn-secondary {
+      background: #f7f6f3;
+      border: 1px solid #e9e9e7;
+      color: #37352f;
+    }
+
+    .btn-secondary:hover {
+      background: #f1f1ef;
+    }
+
+    /* Settings View */
+    #settings {
+      display: none;
+      padding: 16px;
+    }
+
+    .settings-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .back-btn {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .settings-header h2 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .setting-group {
+      margin-bottom: 24px;
+    }
+
+    .setting-group h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .toggle-switch {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .url-patterns-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 12px;
+      max-height: 150px;
+      overflow-y: auto;
+      border: 1px solid #e9e9e7;
+      border-radius: 6px;
+    }
+
+    .url-patterns-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      border-bottom: 1px solid #e9e9e7;
+    }
+
+    .url-patterns-list li:last-child {
+      border-bottom: none;
+    }
+
+    .delete-pattern-btn {
+      background: none;
+      border: none;
+      color: #ef4444;
+      cursor: pointer;
+    }
+
+    .add-pattern-form {
+      display: flex;
+      gap: 8px;
+    }
+
+    .pattern-input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #e9e9e7;
+      border-radius: 6px;
+    }
+
+    .btn-primary {
+      background: #2383e2;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #1e6bb8;
+    }
+
+    .btn-secondary {
+      background: #f7f6f3;
+      border: 1px solid #e9e9e7;
+      color: #37352f;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: #f1f1ef;
+    }
+
+    .btn-tertiary {
+      background: #ffffff;
+      border: 1px solid #d3d3d3;
+      color: #37352f;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.2s;
+    }
+
+    .btn-tertiary:hover {
+      background: #f9f9f9;
+      border-color: #b3b3b3;
+    }
+
+    /* Page Note Sections */
+    .page-note-section {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .page-note-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #e9ecef;
+    }
+
+    .page-note-header h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #37352f;
+      margin: 0;
+    }
+
+    .note-date {
+      font-size: 12px;
+      color: #6c757d;
+    }
+
+    .existing-note-summary {
+      margin-bottom: 20px;
+      padding: 12px;
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid #e9ecef;
+    }
+
+    .existing-note-summary .note-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #37352f;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .existing-note-summary .note-preview {
+      font-size: 13px;
+      color: #6c757d;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .note-meta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding-top: 8px;
+      border-top: 1px solid #f1f3f4;
+      margin-top: 8px;
+    }
+
+    .source-indicator {
+      font-size: 12px;
+      color: #495057;
+      font-weight: 500;
+    }
+
+    .note-stats {
+      font-size: 12px;
+      color: #6c757d;
+    }
+
+    /* Add Content Section */
+    .add-content-section {
+      margin-bottom: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #e9ecef;
+    }
+
+    .additional-content-input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.5;
+      resize: vertical;
+      margin-bottom: 12px;
+      background: #ffffff;
+      transition: border-color 0.2s;
+      min-height: 80px;
+    }
+
+    .additional-content-input:focus {
+      outline: none;
+      border-color: #2383e2;
+      box-shadow: 0 0 0 3px rgba(35, 131, 226, 0.1);
+    }
+
+    .additional-content-input::placeholder {
+      color: #9ca3af;
+    }
+
+    .content-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .page-note-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding-top: 12px;
+      border-top: 1px solid #e9ecef;
+      margin-top: 16px;
+    }
+
+    .page-note-preview {
+      margin-bottom: 20px;
+      padding: 12px;
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid #e9ecef;
+    }
+
+    .note-title-input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      background: #ffffff;
+    }
+
+    .note-title-input:focus {
+      outline: none;
+      border-color: #2383e2;
+      box-shadow: 0 0 0 3px rgba(35, 131, 226, 0.1);
+    }
+
+    .page-note-meta {
+      margin-bottom: 16px;
+    }
+
+    /* Success Message */
+    .success-message {
+      background: #d4edda;
+      color: #155724;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      border: 1px solid #c3e6cb;
+    }
+
+    /* Current Page Info */
+    .current-page-info {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .page-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #37352f;
+      margin-bottom: 2px;
+    }
+
+    .page-url {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup-container">
+    <div class="main-content">
+      <div class="header">
+        <div class="title">
+          <div class="title-icon">
+            <span class="icon">📝</span>
+            <span>Notez</span>
+          </div>
+          <button id="settingsBtn" class="settings-btn">⚙️ Settings</button>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions">
+        <button id="quickNoteBtn" class="quick-action-btn">
+          <span class="icon">⚡</span>
+          <span>Quick Note</span>
+        </button>
+        <button id="capturePageBtn" class="quick-action-btn">
+          <span class="icon">📄</span>
+          <span>Capture Page</span>
+        </button>
+        <button id="captureSelectionBtn" class="quick-action-btn">
+          <span class="icon">🎯</span>
+          <span>Add Selection to Page</span>
+        </button>
+      </div>
+
+      <!-- Recent Notes -->
+      <div class="recent-notes">
+        <div class="section-header">
+          <h3>Recent Notes</h3>
+          <a href="#" id="openFullAppBtn" class="btn-link">Open App</a>
+        </div>
+        <div id="notesList" class="notes-list">
+          <div class="empty-state" id="loadingState">
+            <div class="icon">⏳</div>
+            <p>Loading notes...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings View (hidden by default) -->
+      <div id="settings" style="display: none;">
+        <div class="settings-header">
+          <button id="backBtn" class="back-btn">←</button>
+          <h2>Settings</h2>
+        </div>
+
+        <div class="setting-group">
+          <h3>General</h3>
+          <div class="toggle-switch">
+            <label for="extensionEnabled">Enable Extension</label>
+            <input type="checkbox" id="extensionEnabled" checked>
+          </div>
+        </div>
+
+        <div id="urlPatternMode" class="setting-group">
+          <h3>URL Access Rules</h3>
+          <div>
+            <input type="radio" id="urlModeWhitelist" name="urlPatternMode" value="whitelist">
+            <label for="urlModeWhitelist">Allow on specific sites</label>
+          </div>
+          <div>
+            <input type="radio" id="urlModeBlacklist" name="urlPatternMode" value="blacklist" checked>
+            <label for="urlModeBlacklist">Block on specific sites</label>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <h3>URL Patterns</h3>
+          <ul id="urlPatternsList" class="url-patterns-list">
+            <!-- Patterns will be loaded here -->
+          </ul>
+          <div class="add-pattern-form">
+            <input type="text" id="newPatternInput" class="pattern-input" placeholder="e.g., google.com">
+            <button id="addPatternBtn" class="btn-secondary">Add</button>
+          </div>
+          <button id="resetPatternsBtn" class="btn-link">Reset to defaults</button>
+        </div>
+
+        <div class="footer">
+          <button id="savePatternsBtn" class="btn-primary">Save Settings</button>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <button id="openFullAppBtn" class="quick-action-btn">↗️ Open Full App</button>
+        <button id="openSidepanelBtn" class="quick-action-btn">📑 Open Sidepanel</button>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
