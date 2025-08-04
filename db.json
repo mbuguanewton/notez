@@ -32,7 +32,7 @@
     {
       "id": "mdt02btealsb0qsl0x",
       "title": "Notes: Adaptive Ensembles of Fine-Tuned Transformers for LLM-Generated Text Detection | IEEE Conference Publication | IEEE Xplore",
-      "content": "<h1>Adaptive Ensembles of Fine-Tuned Transformers for LLM-Generated Text Detection | IEEE Conference Publication | IEEE Xplore</h1><p><strong>URL:</strong> <a href=\"https://ieeexplore.ieee.org/abstract/document/10651296\">https://ieeexplore.ieee.org/abstract/document/10651296</a></p><p></p><p>Add your notes here...</p>",
+      "content": "<h1>Adaptive Ensembles of Fine-Tuned Transformers for LLM-Generated Text Detection | IEEE Conference Publication | IEEE Xplore</h1><p><strong>URL:</strong> <a href=\"https://ieeexplore.ieee.org/abstract/document/10651296\">https://ieeexplore.ieee.org/abstract/document/10651296</a></p><p></p><p>Add your notes here...</p>\n<hr>\n<h3>📝 Selected Text (04/08/2025, 14:10:55)</h3>\n<blockquote>\"The results indicate the effectiveness, good generalization ability, and great potential of adaptive ensemble algorithms in LLM-generated text detection.\"</blockquote>\n<p><em>Add your notes about this selection...</em></p>\n\n<hr>\n<h3>📝 Selected Text (04/08/2025, 14:12:16)</h3>\n<blockquote>\"Previous research has mostly tested single models on in-distribution datasets, limiting our understanding of how these models perform on different types of data for LLM-generated text detection tasks. We researched this by testing five specialized transformer-based models on both in-distribution and out-of-distribution datasets to better assess their performance and generalizability. Our results revealed that single transformer-based classifiers achieved decent performance on the in-distribution dataset but limited generalization ability on the out-of-distribution dataset. To improve it, we combined the individual classifier models using adaptive ensemble algorithms, which improved the average accuracy significantly from 91.8% to 99.2% on an in-distribution test set and from 62.9% to 72.5% on an out-of-distribution test set. The results indicate the effectiveness, good generalization ability, and great potential of adaptive ensemble algorithms in LLM-generated text detection.\nPublished in: 2024 International Joint Conference on Neural Networks (IJCNN)\nDate of Conference: 30 June 2024 - 05 July 2024\nDate Added to IEEE Xplore: 09 September 2024\nISBN Information:\nISSN Information:\nDOI: 10.1109/IJCNN60899.2024.10651296\nPublisher: IEEE\nConference Location: Yokohama, Japan\nI. Introduction\nRecently, LLM has experienced rapid development, and its text generation ability is comparable to that of human writing [1]. LLM has penetrated various aspects of daily life and plays a crucial role in many professional workflows such as forecasting and anomaly detection [2], text production [3], reasoning [4], naming [5], promoting tasks [6], vision [7], and across various domains [8]–[13]. In addition, their impact has significantly influenced the development of many sectors and disciplines, including education [14], law [15], biology [16], and medicine [17], agriculture [18]. However, the use of GPTs also brings various risks.\n\nSign in to Continue Reading\n\nAuthors\n\nFigures\n\nReferences\n\nCitations\n\nKeywords\n\nMetrics\n\nFootnotes\n\nMore Like This\nResearch on the Construction of Knowledge QA System Driven by Large Language Model: One Case Study of Power Transformer Domain\n2024 7th International Conference on Data Science and Information Technology (DSIT)\n\nPublished: 2024\n\nComparative Analysis of Transformer-based Large Language Models (LLMs) for Text Summarization\n2024 1st International Conference on Advanced Computing and Emerging Technologies (ACET)\n\nPublished: 2024\n\nShow More\nReferences\n\nReferences is not available for this document.\nIEEE Personal Account\nCHANGE USERNAME/PASSWORD\nPurchase Details\nPAYMENT OPTIONS\nVIEW PURCHASED DOCUMENTS\nProfile Information\nCOMMUNICATIONS PREFERENCES\nPROFESSION AND EDUCATION\nTECHNICAL INTERESTS\nNeed Help?\nUS &amp; CANADA: +1 800 678 4333\nWORLDWIDE: +1 732 981 0060\nCONTACT &amp; SUPPORT\nFollow\nAbout IEEE Xplore | Contact Us | Help | Accessibility | Terms of Use | Nondiscrimination Policy | IEEE Ethics Reporting | Sitemap | IEEE Privacy Policy\n\nA public charity, IEEE is the world&#039;s largest technical professional organization dedicated to advancing technology for the benefit of humanity.\n\n© Copyright 2025 IEEE - All rights reserved, including rights for text and data mining and training of artificial intelligence and similar technologies.\n\n\n📝 Add to Page Note\n📝 Add to Page Note\n📝 Add to Page Note\n📝 Add to Page Note\n📝 Add to Page Note\n📝 Add to Page Note\n📝 Add to Page Note\n📝 Add to Page Note\n📝 Add to Page Note\n📝 Add to Page Note\n📝 Add to Page Note\n📝 Add to Page Note\n📝 Add to Page Note\n📝 Add to Page Note\n📝 Add to Page Note\"</blockquote>\n<p><em>Add your notes about this selection...</em></p>\n",
       "tags": [
         "web-page",
         "ieeexplore.ieee.org"
@@ -43,7 +43,7 @@
         "domain": "ieeexplore.ieee.org",
         "capturedAt": "2025-08-01T15:49:55.087Z"
       },
-      "updatedAt": "2025-08-01T15:50:08.210Z",
+      "updatedAt": "2025-08-04T13:12:16.850Z",
       "createdAt": "2025-08-01T15:50:08.210Z"
     },
     {
@@ -62,6 +62,39 @@
       },
       "updatedAt": "2025-08-01T17:04:33.719Z",
       "createdAt": "2025-08-01T17:04:33.719Z"
+    },
+    {
+      "id": "mdx4au0v0f5dfoy11ze7",
+      "title": "Notes: Documentation | Apache Airflow",
+      "content": "<h1>Documentation | Apache Airflow</h1><p><strong>URL:</strong> <a href=\"https://airflow.apache.org/docs/\">https://airflow.apache.org/docs/</a></p><p></p><p>Add your notes here...</p>\n<hr>\n<h3>📝 Selected Text (04/08/2025, 14:00:17)</h3>\n<blockquote>\"with Airflow resources (e.g., Connections, Variables, XComs, Metrics, Logs, and OpenLineage events) at runtime. The goal of task-sdk is to decouple DAG authoring from Airflow internals (Scheduler, API Server, etc.), providing a forward-compatible, stable interface for writing\"</blockquote>\n<p><em>Add your notes about this selection...</em></p>\n",
+      "tags": [
+        "web-page",
+        "airflow.apache.org"
+      ],
+      "source": {
+        "url": "https://airflow.apache.org/docs/",
+        "title": "Documentation | Apache Airflow",
+        "domain": "airflow.apache.org",
+        "capturedAt": "2025-08-04T12:59:43.700Z"
+      },
+      "updatedAt": "2025-08-04T13:00:17.244Z",
+      "createdAt": "2025-08-04T12:59:48.223Z"
+    },
+    {
+      "id": "mdx4q1ijjgy5l7re2a",
+      "title": "Selection from Adaptive Ensembles of Fine-Tuned Transformers for LLM-Generated Text Detection | IEEE Conference Publication | IEEE Xplore",
+      "content": "<blockquote>\"Large language models (LLMs) have reached human-like proficiency in generating diverse textual content, underscoring the necessity for effective fake text detection to avoid potential risks such as fake news in social media.\"</blockquote><p>From: <a href=\"https://ieeexplore.ieee.org/abstract/document/10651296\">Adaptive Ensembles of Fine-Tuned Transformers for LLM-Generated Text Detection | IEEE Conference Publication | IEEE Xplore</a></p>",
+      "tags": [
+        "selection",
+        "web"
+      ],
+      "source": {
+        "url": "https://ieeexplore.ieee.org/abstract/document/10651296",
+        "title": "Adaptive Ensembles of Fine-Tuned Transformers for LLM-Generated Text Detection | IEEE Conference Publication | IEEE Xplore",
+        "type": "selection"
+      },
+      "updatedAt": "2025-08-04T13:11:37.771Z",
+      "createdAt": "2025-08-04T13:11:37.771Z"
     }
   ],
   "settings": {
